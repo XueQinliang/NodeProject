@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel='stylesheet' href='/stylesheets/style.css' type="text/css" />
+        <title><%= title %></title>
+        <script type="text/javascript" src="/javascripts/jquery.js"></script>
+        <script type="text/javascript">
+            function sendlogindata(){
+                //var Data=new FormData(document.getElementById('form1'))
+                console.log(JSON.stringify({'username':$("#u").val(),'password':$("#p").val()}));
+                $.ajax({
+                    type: "POST",
+                    url: "/login/show",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({'username':$("#u").val(),'password':$("#p").val()}),
+                    dataType: "json",
+                    success:function (message) {
+                        alert($("#u").val()+"登录成功");
+                    },
+                    error:function (message) {
+                        alert("登录失败");
+                    }
+                });
+                window.location.href = '/user';
+            }
+            function goregister(){
+                window.location.href = '/register';
+            }
+        </script>
+    </head>
+    <body>
+        <h1><%= title %></h1>
+        <form id='form1'>
+            <p>用户名:</p> 
+            <input id='u' class='input' type="text" name="username">
+            <p>密码:</p>
+            <input id='p' class='input' type="password" name="password"> 
+            <br><br>
+            <input class="button" type="button" value="登录" style="float:left" onclick="sendlogindata();">
+            <input class="button" type="button" value="注册"  style="float:right" onclick="goregister()">
+        </form>
+    </body>
+</html>

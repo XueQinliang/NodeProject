@@ -1,0 +1,36 @@
+body {
+  padding: 50px;
+  background-color:rgb(206, 238, 206);
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.input{
+  display:block;
+  width:200px;
+  height:25px;
+  line-height:40px;
+  font-size: x-large;
+  background-color:lightyellow;
+  color:black;
+  border:none;
+  margin:10px auto 0px auto;
+  cursor:pointer;
+}
+
+.button{
+  width:80px;
+  height:20px;
+  background-color:rgb(124, 172, 238);
+  color:#fff;
+}
+
+form{
+  display: inline-block;
+  margin: 50px;
+  text-align:left;
+  color:black;/*设置颜色*/
+}
