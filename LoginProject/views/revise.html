@@ -7,12 +7,7 @@
         <script type="text/javascript" src="/javascripts/jquery.js"></script>
         <script>
             function check(data){
-                console.log(data.username.length);
-                console.log(data.password.length);
-                if(data.username==''){
-                    alert("请输入用户名");
-                    return false;
-                }else if(data.password==''){
+                if(data.password==''){
                     alert("请输入密码");
                     return false;
                 }else if(data.password2==''){
@@ -22,61 +17,54 @@
                     alert("两次密码输入不一致");
                     return false;
                 }
-                else if(data.username.length>45){
-                    alert("用户名不得超过45个字符");
-                    return false;
-                }
                 else if(data.password.length<6 || data.password.length>20){
                     alert("密码需要在6-20个字符之间");
                     return false;
                 }
                 return true;
             }
-            function register(){
+            function OK(){
                 var req = {
-                    'username':$("input:nth-of-type(1)").val(),
-                    'password':$("input:nth-of-type(2)").val(),
-                    'password2':$("input:nth-of-type(3)").val()
+                    'password':$("input:nth-of-type(1)").val(),
+                    'password2':$("input:nth-of-type(2)").val()
                 }
                 if(check(req)){
                     $.ajax({
                         type: "POST",
-                        url: "/register/show",
+                        url: "/revise/show",
                         contentType: "application/json;charset=utf-8",
                         data: JSON.stringify(req),
                         dataType: "json",
                         success:function (message) {
                             console.log(message);
                             if(message['success']==1){
-                                alert(req['username']+"注册成功");
-                                window.location.href = '/login';
-                            }else if(message['exist']==1){
+                                alert("修改成功");
+                                window.location.href = '/logout';
+                            }else{
                                 alert(message['msg']);
                             }
                         },
                         error:function (message) {
-                            alert("注册失败");
+                            alert("修改失败");
                         }
                     });
                 }
             }
-            function returnlogin(){
-                window.location.href = '/login';
+            function returnindex(){
+                window.location.href = '/';
             }
         </script>
     </head>
     <body>
         <h1><%= title %></h1>
-        <form id='form2'>
-            <p>用户名（不长于45个字符）:</p> 
-            <input class='input' type="text" name="username">
-            <p>密码（6-20位）:</p>
+        <form id='form3'>
+            <p>新密码（6-20位）:</p>
             <input class='input' type="password" name="password">
             <p>再次输入密码：</p>
             <input class='input' type="password" name="password2">
             <br><br>
-            <input class="button" type="button" value="提交注册" style="float: left; " onclick="register()">
-            <input class="button" type="button" value="返回登录" style="float: right; " onclick="returnlogin()">
+            <input class="button" type="button" value="确认" style="float: left; " onclick="OK()">
+            <input class="button" type="button" value="返回" style="float: right; " onclick="returnindex()">
         </form>
     </body>
 </html>

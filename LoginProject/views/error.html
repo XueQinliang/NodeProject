@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/main.css' type="text/css" />
+    <title>找不到了</title>
+    <style>
+        p {
+            text-align: center;
+            font-size: 80px;
+            font-weight: bolder;
+            color: orangered;
+        }
+    </style>
 </head>
+<%- include('./layout.html'); %>
 <body>
-    <h4>view page</h4>
+    <%- include('./leftblock.html'); %>
+    <p>
+        <%= errcode %>
+    </p>
+    <p>
+        <%= errmsg %>
+    </p>
+    <%- include('./footer.html'); %>
 </body>
 </html>
