@@ -226,4 +226,8 @@ dist
 
 .yarn/build-state.yml
 
+<<<<<<< HEAD
 .pnp.*
+=======
+.pnp.*
+>>>>>>> d26f2eb612181834bb41c1d73f65b89eff3b5fb3
