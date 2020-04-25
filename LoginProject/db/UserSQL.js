@@ -1,5 +1,6 @@
 var UserSQL = {  
-    insert:'INSERT INTO users(username,password) VALUE (?,?)', 
+    insert:'INSERT INTO users(username,password) VALUE (?,?)',
+    insert_description:'UPDATE users SET description=? where username=?', 
     queryAll:'SELECT * FROM users',  
     getUser:'SELECT * FROM users WHERE username=?',
     check:'SELECT * FROM users WHERE username=? and password=?',

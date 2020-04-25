@@ -6,21 +6,21 @@
     <link rel='stylesheet' href='/stylesheets/main.css' type="text/css" />
     <title>找不到了</title>
     <style>
-        p {
+        p.errormsg{
             text-align: center;
             font-size: 80px;
             font-weight: bolder;
-            color: orangered;
+            color: <%= color %>;
         }
     </style>
 </head>
 <%- include('./layout.html'); %>
 <body>
     <%- include('./leftblock.html'); %>
-    <p>
+    <p class='errormsg'>
         <%= errcode %>
     </p>
-    <p>
+    <p class="errormsg">
         <%= errmsg %>
     </p>
     <%- include('./footer.html'); %>

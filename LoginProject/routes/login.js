@@ -24,6 +24,7 @@ router.post('/show', function(req, res, next){
       console.log(res.length);
       if(res && res.length>0){
         global.username = response['username'];
+        global.dscrpt = res[0]['description'];
         req.session.user = response['username'];
         if (req.session.originalUrl) {  // 如果存在原始请求路径，将用户重定向到原始请求路径
           var redirectUrl = req.session.originalUrl;

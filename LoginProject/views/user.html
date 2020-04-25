@@ -6,11 +6,28 @@
         <title>首页</title>
         <link rel='stylesheet' href='/stylesheets/main.css' type="text/css" />
     </head>
+    <script>
+        function check(){
+            var len = document.forms['form-dscrpt']['inputbox'].value.length;
+            if(len>=200){
+                alert("描述字数不得长于200");
+                return false;
+            }else{
+                alert("描述保存成功");
+                return true;
+            }
+        }
+    </script>
     <%- include('./layout.html'); %>
     <body>
         <%- include('./leftblock.html'); %>
         <div style="margin-left: 170px;">
             <h1><%= username %>的个人中心</h1>
+            <p style="font-size: 20px;">在这里你可以添加或修改你的个人描述</p>
+            <form id='form-dscrpt' action="/user/descript" method="POST" onsubmit="return check();">
+                <textarea name='inputbox' cols="40" rows="5"><%= dscrpt %></textarea><br><br>
+                <input class="button" type="submit" value="保存描述">
+            </form>
         </div>
         <%- include('./footer.html'); %>
     </body>

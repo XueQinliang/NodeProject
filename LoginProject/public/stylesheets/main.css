@@ -6,3 +6,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+.button{
+  width:80px;
+  height:20px;
+  background-color:rgb(124, 172, 238);
+  color:#fff;
+}
